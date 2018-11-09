@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机点饭 抽着啥吃啥</title>
+    <style>
+        #content{
+            width: 1200px;
+            height: 600px;
+            background: gray;
+            margin: 100px auto;
+            text-align: center;
+            position: relative;
+            line-height: 300px;
+            color: dodgerblue;
+            font-size: 70px;
+        }   
+        #btn1{
+            background: #ccc;
+            width: 360px;
+            height: 200px;
+            font-size: 30px;
+            color: #f40;
+            border-radius: 12px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -180px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <span id="span1">
+            点击开始点饭 点着啥吃啥 绝不食言
+        </span>
+        <button id="btn1">
+            让命运决定我吃啥不挑食
+        </button>
+
+    </div>
+
+    <script>
+        var arr = ['米饭 烧茄子 宫保鸡丁','米饭 家常豆腐 孜然土豆条 ','米饭 让舍友随便买俩菜','培根炒饼','豆芽鸡蛋炒饼','蒜薹鸡蛋炒饼','舍友买任意炒饼','佛系不吃饭','豆皮拉面','豆排拉面','火腿拉面','豆皮豆排火腿拉面','大饼卷肠','大饼卷肉','大饼卷肉 肠','小笼包10个猪肉大葱','小笼包10个韭菜鸡蛋','小笼包10个啥馅都行','黄焖鸡米饭','炒方便面','热干面','吃外卖吧 旺顺阁小菜米饭','烤肉饭外卖','泡方便面','八宝粥小包子','煎饼小米粥','鸡公煲米饭','鱼香肉丝盖饭','香菇炒肉盖饭','吃啥都行','再来一次','吃啥都行','吃啥都行'];
+        var $btn1 = document.getElementById('btn1');
+        var $content = document.getElementById('content');
+        var $span1 = document.getElementById('span1');
+        var timer;//计时器
+        var index = 0;//自己定义数组的索引
+        var testNum = true;
+        $btn1.onclick = function(){
+            if(testNum){
+                // console.log(1);
+                start();
+                $btn1.innerHTML = '就吃这个了！';
+                testNum = false;
+            }
+            else{
+                // console.log(0);
+                stop();
+                $btn1.innerHTML = '再来一次！！！';
+                testNum = true;
+            }
+        }
+        function start(){
+                timer = setInterval(function(){
+                    var num = random(0,arr.length - 1);
+                    $span1.innerHTML = arr[num];
+                },50)
+        }
+        function stop(){
+                clearInterval(timer);      
+        }
+        // 随机函数
+        function random(a,b){
+            var randomNum = Math.round(Math.random() * (b - a) + a);
+            return randomNum;
+        }        
+    </script>
+</body>
+</html>
