@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pop</title>
+	<style>
+    body {
+        padding: 50px;
+    }
+
+    #div {
+        display: inline-flex;
+        flex-wrap: wrap;
+    }
+
+    .circle {
+        width: 100px;
+        height: 100px;
+        margin: 15px;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+<div id="div">
+    <div class="circle" style="background:rgba(100,100,200,0.4)"></div>
+</div>
+<script>
+    var div = document.getElementById('div');
+    div.setAttribute('onclick','pop()');
+    function pop(){
+        div.innerHTML +='<div class="circle" style="background:'+color()+'"></div>';
+    }
+    function color(){
+        var color='rgba('+Math.random()*255+','+Math.random()*255+','+Math.random()*255+',' +Math.random()+')';
+         return color;
+         }
+
+</script>
+</body>
+</html>
