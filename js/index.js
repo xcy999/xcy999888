@@ -136,12 +136,7 @@ window.onload = function(){
 		var t3img3 = document.getElementsByClassName("t3img3")[0];
 		t3img3.style.display = "none";
 	}
-	//8.点击最后一个商品跳转到详情页
-	var detail = document.getElementsByClassName("detail")[0];
-	detail.onclick = function(){
-		window.location.href = "details.html";
-	}
-
+	
 }
 
 function ShowImage(index){
